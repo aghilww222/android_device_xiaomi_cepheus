@@ -18,7 +18,6 @@ package org.lineageos.settings.display;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.MenuItem;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
@@ -27,17 +26,19 @@ import androidx.preference.SwitchPreference;
 import org.lineageos.settings.R;
 import org.lineageos.settings.utils.FileUtils;
 
-public class DcDimmingSettingsFragment extends PreferenceFragment implements
+public class DisplaySettingsFragment extends PreferenceFragment implements
         OnPreferenceChangeListener {
 
     private SwitchPreference mDcDimmingPreference;
     private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
-    private static final String DC_DIMMING_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable";
+    private static final String DC_DIMMING_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dimlayer_bl";
+    private SwitchPreference mHBMPreference;
+    private static final String HBM_ENABLE_KEY = "hbm_mode";
+    private static final String HBM_NODE = "/sys/devices/platform/soc/soc:qcom,dsi-display-primary/hbm";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
-        addPreferencesFromResource(R.xml.dcdimming_settings);
-        getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
+        addPreferencesFromResource(R.xml.display_settings);
         mDcDimmingPreference = (SwitchPreference) findPreference(DC_DIMMING_ENABLE_KEY);
         if (FileUtils.fileExists(DC_DIMMING_NODE)) {
             mDcDimmingPreference.setEnabled(true);
@@ -46,6 +47,14 @@ public class DcDimmingSettingsFragment extends PreferenceFragment implements
             mDcDimmingPreference.setSummary(R.string.dc_dimming_enable_summary_not_supported);
             mDcDimmingPreference.setEnabled(false);
         }
+        mHBMPreference = (SwitchPreference) findPreference(HBM_ENABLE_KEY);
+        if (FileUtils.fileExists(HBM_NODE)) {
+            mHBMPreference.setEnabled(true);
+            mHBMPreference.setOnPreferenceChangeListener(this);
+        } else {
+            mHBMPreference.setSummary(R.string.hbm_enable_summary_not_supported);
+            mHBMPreference.setEnabled(false);
+        }
     }
 
     @Override
@@ -53,16 +62,9 @@ public class DcDimmingSettingsFragment extends PreferenceFragment implements
         if (DC_DIMMING_ENABLE_KEY.equals(preference.getKey())) {
             FileUtils.writeLine(DC_DIMMING_NODE, (Boolean) newValue ? "1":"0");
         }
+        if (HBM_ENABLE_KEY.equals(preference.getKey())) {
+            FileUtils.writeLine(HBM_NODE, (Boolean) newValue ? "1" : "0");
+        }
         return true;
     }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            getActivity().onBackPressed();
-            return true;
-        }
-        return false;
-    }
-
 }
