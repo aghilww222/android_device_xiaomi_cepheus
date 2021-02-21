@@ -15,6 +15,15 @@
 -->
 
 <resources>
+<<<<<<< HEAD:parts/res/values-night/colors.xml
     <color name="switchbar_switch_track_tint">#82000000</color>
     <color name="switchbar_switch_thumb_tint">@android:color/black</color>
+=======
+    <!-- Wired/BT headset focus mode -->
+    <bool name="config_deviceRingtoneFocusMode">true</bool>
+
+    <!-- Defines the sysfs attribute path used by the device
+         to enable/disable DC dimming. -->
+    <string name="config_deviceDcDimmingSysfsNode">/sys/devices/platform/soc/soc:qcom,dsi-display-primary/msm_fb_ea_enable</string>
+>>>>>>> 1d37065 (cepheus: define node for automated DC dimming):overlay-havoc/frameworks/base/core/res/res/values/config.xml
 </resources>
