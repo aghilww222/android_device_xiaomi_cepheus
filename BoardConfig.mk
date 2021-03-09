@@ -16,7 +16,10 @@
 
 BOARD_VENDOR := xiaomi
 
+# Platform path
 DEVICE_PATH := device/xiaomi/cepheus
+
+MSMNILE := sm8150
 
 BUILD_BROKEN_DUP_RULES := true
 BUILD_BROKEN_USES_NETWORK := true
@@ -159,7 +162,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 TARGET_COPY_OUT_VENDOR := vendor
 
 # Platform
-TARGET_BOARD_PLATFORM := msmnile
+TARGET_BOARD_PLATFORM := $(MSMNILE)
 
 # Power
 TARGET_POWERHAL_MODE_EXT := $(DEVICE_PATH)/power/power-mode.cpp
