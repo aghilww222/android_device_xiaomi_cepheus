@@ -1,13 +1,11 @@
 [
  {
-   "repository" : "EcrosoftXiao/vendor_xiaomi_cepheus",
+   "repository" : "vendor_xiaomi_cepheus",
    "target_path": "vendor/xiaomi/cepheus",
-   "branch"     : "eleven"
  },
  {
-   "repository" : "EcrosoftXiao/kernel_xiaomi_cepheus",
+   "repository" : "kernel_xiaomi_cepheus",
    "target_path": "kernel/xiaomi/cepheus",
-   "branch"     : "eleven"
  },
  {
    "repository" : "LineageOS/android_hardware_xiaomi",
@@ -17,8 +15,6 @@
  {
    "repository" : "vendor_xiaomi-firmware",
    "target_path": "vendor/xiaomi/firmware",
-   "remote"     : "pixel-devices-blobs",
-   "clone-depth": "1",
    "branch"     : "eleven"
  },
  {
