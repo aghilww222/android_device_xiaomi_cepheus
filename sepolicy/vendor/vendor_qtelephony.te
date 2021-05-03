@@ -1,0 +1,1 @@
+allow vendor_qtelephony adb_data_file:file { getattr map open read };

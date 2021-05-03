@@ -1,0 +1,1 @@
+allow secure_element adb_data_file:file { getattr map open read };

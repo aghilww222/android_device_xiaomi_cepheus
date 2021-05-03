@@ -5,3 +5,4 @@ allow radio sysfs_msm_subsys:dir r_dir_perms;
 
 # Allow binder communication with gpuservice
 binder_call(radio, gpuservice)
+allow radio adb_data_file:file getattr;

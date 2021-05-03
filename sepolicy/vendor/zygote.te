@@ -1,0 +1,2 @@
+allow zygote adb_data_file:file { getattr open read };
+allow zygote vendor_file:file { read open getattr map execute };
