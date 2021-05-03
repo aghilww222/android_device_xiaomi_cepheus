@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 The LineageOS Project
+ * Copyright (C) 2018 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,11 +14,19 @@
  * limitations under the License.
  */
 
-#pragma once
+#ifndef POWER_LIBPERFMGR_POWER_H_
+#define POWER_LIBPERFMGR_POWER_H_
+
+#include <atomic>
+#include <memory>
+#include <thread>
 
 #include <android/hardware/power/1.3/IPower.h>
+#include <hidl/MQDescriptor.h>
 #include <hidl/Status.h>
-#include <utils/Log.h>
+#include <perfmgr/HintManager.h>
+
+#include "disp-power/InteractionHandler.h"
 
 namespace android {
 namespace hardware {
@@ -26,31 +34,50 @@ namespace power {
 namespace V1_3 {
 namespace implementation {
 
+using ::InteractionHandler;
 using ::android::hardware::Return;
 using ::android::hardware::Void;
-
 using ::android::hardware::power::V1_0::Feature;
-using ::android::hardware::power::V1_0::Status;
+using ::android::hardware::power::V1_3::IPower;
 using PowerHint_1_0 = ::android::hardware::power::V1_0::PowerHint;
 using PowerHint_1_2 = ::android::hardware::power::V1_2::PowerHint;
 using PowerHint_1_3 = ::android::hardware::power::V1_3::PowerHint;
+using ::android::perfmgr::HintManager;
 
-struct Power : public IPower {
-    // Methods from V1_0::IPower follow.
+class Power : public IPower {
+  public:
+    // Methods from ::android::hardware::power::V1_0::IPower follow.
+
+    Power();
+
     Return<void> setInteractive(bool interactive) override;
     Return<void> powerHint(PowerHint_1_0 hint, int32_t data) override;
-    Return<void> setFeature(V1_0::Feature feature, bool activate) override;
+    Return<void> setFeature(Feature feature, bool activate) override;
     Return<void> getPlatformLowPowerStats(getPlatformLowPowerStats_cb _hidl_cb) override;
 
-    // Methods from V1_1::IPower follow.
+    // Methods from ::android::hardware::power::V1_1::IPower follow.
     Return<void> getSubsystemLowPowerStats(getSubsystemLowPowerStats_cb _hidl_cb) override;
     Return<void> powerHintAsync(PowerHint_1_0 hint, int32_t data) override;
 
-    // Methods from V1_2::IPower follow.
+    // Methods from ::android::hardware::power::V1_2::IPower follow.
     Return<void> powerHintAsync_1_2(PowerHint_1_2 hint, int32_t data) override;
 
-    // Methods from V1_3::IPower follow.
+    // Methods from ::android::hardware::power::V1_3::IPower follow.
     Return<void> powerHintAsync_1_3(PowerHint_1_3 hint, int32_t data) override;
+
+    // Methods from ::android::hidl::base::V1_0::IBase follow.
+    Return<void> debug(const hidl_handle &fd, const hidl_vec<hidl_string> &args) override;
+
+  private:
+    std::shared_ptr<HintManager> mHintManager;
+    std::unique_ptr<InteractionHandler> mInteractionHandler;
+    std::atomic<bool> mVRModeOn;
+    std::atomic<bool> mSustainedPerfModeOn;
+    std::atomic<bool> mCameraStreamingMode;
+    std::atomic<bool> mReady;
+    std::thread mInitThread;
+
+    Return<void> updateHint(const char *hint, bool enable);
 };
 
 }  // namespace implementation
@@ -58,3 +85,5 @@ struct Power : public IPower {
 }  // namespace power
 }  // namespace hardware
 }  // namespace android
+
+#endif  // POWER_LIBPERFMGR_POWER_H_
