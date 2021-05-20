@@ -120,8 +120,13 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v29/arm64/arch-arm64-armv8-a/shared/vndk-sp/libc++.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libc++.so
 
 # Camera GO
+ifeq ($(ARROW_GAPPS), true)
 PRODUCT_PACKAGES += \
     GCamGOPrebuilt
+else
+PRODUCT_PACKAGES += \
+    Snap
+endif
     
 # Device-specific settings
 PRODUCT_PACKAGES += \
