@@ -465,6 +465,16 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.qti.hardware.vibrator.service
 
+# Permissions
+PRODUCT_COPY_FILES += \
+   $(LOCAL_PATH)/configs/android.hardware.camera.ar.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.camera.ar.xml \
+   $(LOCAL_PATH)/configs/android.hardware.gamepad.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.gamepad.xml \
+   $(LOCAL_PATH)/configs/android.hardware.vr.high_performance.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/android.hardware.vr.high_performance.xml \
+   $(LOCAL_PATH)/configs/com.google.android.dialer.support.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/com.google.android.dialer.support.xml \
+   $(LOCAL_PATH)/configs/google_build.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/google_build.xml \
+   $(LOCAL_PATH)/configs/nexus.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/nexus.xml \
+   $(LOCAL_PATH)/configs/pixel_2016_exclusive.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/pixel_2016_exclusive.xml
+
 # Vulkan
 PRODUCT_PACKAGES += \
     libvulkan
