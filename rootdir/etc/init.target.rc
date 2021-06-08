@@ -171,6 +171,9 @@ on charger
 
     start qcom-post-boot
     start vendor.hvdcp_opti
+    
+    chown system system /sys/class/leds/white/brightness
+    write /sys/class/leds/white/brightness 255
 
 service vendor.thermal-engine /vendor/bin/thermal-engine
    class main
