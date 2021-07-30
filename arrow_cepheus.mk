@@ -47,4 +47,4 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.build.fingerprint=google/redfin/redfin:11/RQ3A.210705.001/7380771:user/release-keys
     
 # Include firmware
-$(call inherit-product, vendor/xiaomi/firmware/cepheus/firmware.mk)
+# $(call inherit-product, vendor/xiaomi/firmware/cepheus/firmware.mk)
