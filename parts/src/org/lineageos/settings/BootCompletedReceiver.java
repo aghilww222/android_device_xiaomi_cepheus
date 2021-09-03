@@ -24,6 +24,7 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import org.lineageos.settings.dirac.DiracUtils;
+import org.lineageos.settings.doze.DozeUtils;
 import org.lineageos.settings.thermal.ThermalUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
@@ -37,6 +38,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         PendingResult pendingResult = goAsync();
         DiracUtils.initialize(context);
+        DozeUtils.checkDozeService(context);
         ThermalUtils.startService(context);
 
 	pendingResult.finish();
