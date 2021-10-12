@@ -37,14 +37,6 @@
         android:gravity="@integer/biometric_dialog_text_gravity"
         style="@style/TextAppearance.AuthCredential.Description"/>
 
-    <ImageView
-        android:id="@+id/biometric_icon"
-        android:layout_width="@dimen/biometric_dialog_biometric_icon_size"
-        android:layout_height="@dimen/biometric_dialog_biometric_icon_size"
-        android:paddingTop="48dp"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="fitXY" />
-
     <TextView
         android:id="@+id/indicator"
         android:layout_width="match_parent"
@@ -55,6 +47,14 @@
         android:gravity="center_horizontal"
         android:accessibilityLiveRegion="polite"
         android:textColor="@color/biometric_dialog_gray"/>
+
+    <ImageView
+        android:id="@+id/biometric_icon"
+        android:layout_width="@dimen/biometric_dialog_biometric_icon_size"
+        android:layout_height="@dimen/biometric_dialog_biometric_icon_size"
+        android:paddingTop="48dp"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="fitXY" />
 
     <LinearLayout
         android:id="@+id/button_bar"
