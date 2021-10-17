@@ -32,7 +32,7 @@ BUILD_BROKEN_ENFORCE_SYSPROP_OWNER := true
 include vendor/xiaomi/cepheus/BoardConfigVendor.mk
 
 # ANT+
-BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+BOARD_ANT_WIRELESS_DEVICE := "vfs-prerelease"
 
 # APEX
 OVERRIDE_TARGET_FLATTEN_APEX := true
