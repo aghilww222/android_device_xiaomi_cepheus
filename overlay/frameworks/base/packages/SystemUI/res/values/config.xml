@@ -25,7 +25,7 @@
 
 
     <!-- The radius of the enrollment progress bar, in dp -->
-    <integer name="config_udfpsEnrollProgressBar" translatable="false">100</integer>
+    <integer name="config_udfpsEnrollProgressBar" translatable="false">92</integer>
     
     <!-- Doze: check proximity sensor before pulsing? -->
     <bool name="doze_proximity_check_before_pulse">false</bool>
