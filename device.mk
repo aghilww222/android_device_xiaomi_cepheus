@@ -186,7 +186,8 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cepheus \
+    android.hardware.biometrics.fingerprint@2.3-service.cepheus \
+    android.hardware.biometrics.fingerprint@2.3.vendor \
     vendor.goodix.hardware.biometrics.fingerprint@2.1.vendor
 
 # Fstab
