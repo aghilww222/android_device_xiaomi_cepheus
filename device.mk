@@ -409,7 +409,7 @@ PRODUCT_PACKAGES += \
     libprotobuf-cpp-full-vendorcompat
 
 # Screen density
-TARGET_SCREEN_DENSITY := 440
+TARGET_SCREEN_DENSITY := 392
 
 # Sensors
 PRODUCT_PACKAGES += \
