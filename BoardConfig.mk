@@ -109,8 +109,8 @@ DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/configs/hidl/c2_manifest.xml
 DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
 
 # Init
-TARGET_SURFACEFLINGER_UDFPS_LIB := //$(DEVICE_PATH):libudfps_extension.xiaomi_cepheus
-TARGET_USES_FOD_ZPOS := true
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_cepheus
+TARGET_RECOVERY_DEVICE_MODULES := libinit_cepheus
 
 # Kernel
 BOARD_KERNEL_BASE := 0x00000000
