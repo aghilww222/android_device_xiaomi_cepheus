@@ -290,10 +290,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.xiaomi_cepheus
 
-PRODUCT_PACKAGES += \
-    charger_res_images \
-    product_charger_res_images
-
 # Media
 PRODUCT_PACKAGES += \
     libOmxAacEnc \
