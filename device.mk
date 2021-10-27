@@ -267,8 +267,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     init.affinity.sh \
     init.insmod.sh \
-    init.safailnet.rc \
-    init.recovery.sh
+    init.safailnet.rc
 
 # Input
 PRODUCT_COPY_FILES += \
@@ -477,6 +476,10 @@ PRODUCT_COPY_FILES += \
 # Uevent
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc
+
+# System
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.binary_xml=false
 
 # USB
 PRODUCT_PACKAGES += \
