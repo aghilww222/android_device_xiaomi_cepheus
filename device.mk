@@ -17,6 +17,9 @@
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
+# Product launched with 9.0
+$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
+
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 
@@ -24,9 +27,6 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, vendor/xiaomi/cepheus/cepheus-vendor.mk)
 
 include build/make/target/product/iorap_large_memory_config.mk
-
-# PRODUCT_SHIPPING_API_LEVEL indicates the first api level, device has been commercially launched on.
-PRODUCT_SHIPPING_API_LEVEL := 27
 
 # Additional native libraries
 PRODUCT_COPY_FILES += \
