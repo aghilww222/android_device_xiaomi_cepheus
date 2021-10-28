@@ -266,8 +266,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
     init.affinity.sh \
-    init.insmod.sh \
-    init.safailnet.rc
+    init.insmod.sh
 
 # Input
 PRODUCT_COPY_FILES += \
