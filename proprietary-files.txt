@@ -1,3 +1,5 @@
+# All unpinned blobs are extracted from CEPHEUS_V12.5.6.0.RFACNXM
+
 # ADSP
 vendor/bin/adsprpcd
 vendor/bin/cdsprpcd
