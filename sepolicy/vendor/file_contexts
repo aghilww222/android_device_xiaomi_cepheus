@@ -45,9 +45,6 @@
 # Sensors
 /dev/elliptic(.*)?                                                                                     u:object_r:sound_device:s0
 
-# Thermal
-/vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.qti                                            u:object_r:hal_thermal_default_exec:s0
-
 # USB
 /vendor/bin/init\.mi\.usb\.sh                                                                          u:object_r:vendor_qti_init_shell_exec:s0
 
