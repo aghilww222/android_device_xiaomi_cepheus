@@ -174,6 +174,10 @@ PRODUCT_PACKAGES += \
 
 # DRM
 PRODUCT_PACKAGES += \
+    android.hardware.drm@1.0.vendor \
+    android.hardware.drm@1.1.vendor \
+    android.hardware.drm@1.2.vendor \
+    android.hardware.drm@1.3.vendor \
     android.hardware.drm@1.4-service.clearkey
 
 # Enable incremental FS feature
@@ -195,10 +199,16 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom
 
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor
+
 # GPS
 PRODUCT_PACKAGES += \
      android.hardware.gnss@2.1-impl-qti \
-     android.hardware.gnss@2.1-service-qti
+    android.hardware.gnss@2.1-service-qti \
+    android.hardware.gnss@1.1.vendor \
+    android.hardware.gnss@2.1.vendor
 
 PRODUCT_PACKAGES += \
      gps.conf \
@@ -233,18 +243,8 @@ PRODUCT_PACKAGES += \
 
 # HIDL interface 
 PRODUCT_PACKAGES += \
-    android.hardware.keymaster@4.1.vendor \
-    android.hardware.gatekeeper@1.0.vendor \
     android.hardware.biometrics.fingerprint@2.3.vendor \
-    android.hardware.radio@1.5.vendor \
-    android.hardware.gnss@1.1.vendor \
     android.hardware.bluetooth@1.0.vendor \
-    android.hardware.neuralnetworks@1.3.vendor \
-    android.hardware.secure_element@1.2.vendor \
-    android.system.net.netd@1.1.vendor \
-    android.hardware.radio.config@1.2.vendor \
-    android.hardware.gnss@2.1.vendor \
-    android.hardware.radio.deprecated@1.0.vendor
     
 # Insmod files
 PRODUCT_COPY_FILES += \
@@ -292,6 +292,10 @@ PRODUCT_COPY_FILES += \
 # IRSC
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/security/sec_config:$(TARGET_COPY_OUT_VENDOR)/etc/sec_config
+
+# Keystore
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@4.1.vendor
 
 # Lights
 PRODUCT_PACKAGES += \
@@ -349,9 +353,18 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml
 
+# Net
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor
+
+# Neural Networks
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.3.vendor
+
 # NFC
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.2-service \
+    android.hardware.secure_element@1.2.vendor \
     com.android.nfc_extras \
     libchrome.vendor \
     NfcNci \
@@ -406,10 +419,14 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
     libjson \
     libril \
     librilutils \
-    librmnetctl
+    librmnetctl \
+    libxml2
 
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-lite-vendorcompat \
