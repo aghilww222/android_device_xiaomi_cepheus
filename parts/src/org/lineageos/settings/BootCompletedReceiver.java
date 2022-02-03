@@ -22,7 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
-import org.lineageos.settings.dirac.DiracUtils;
+
 import org.lineageos.settings.doze.DozeUtils;
 
 import org.lineageos.settings.utils.FileUtils;
@@ -42,13 +42,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(final Context context, Intent intent) {
-        if (DEBUG)
-            Log.d(TAG, "Received boot completed intent");
-        try {
-        DiracUtils.initialize(context);
-        } catch (Exception e) {
-            Log.d(TAG, "Dirac is not present in system");
-        }
+       
 
         PendingResult pendingResult = goAsync();
         DozeUtils.onBootCompleted(context);
