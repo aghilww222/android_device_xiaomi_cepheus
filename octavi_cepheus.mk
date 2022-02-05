@@ -22,15 +22,14 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/xiaomi/cepheus/device.mk)
 
 # Inherit some common ArrowOS stuff.
-$(call inherit-product, vendor/arrow/config/common.mk)
+$(call inherit-product, vendor/octavi/config/common.mk)
 
 # Boot animation
 TARGET_BOOT_ANIMATION_RES := 1080
 
-DEVICE_MAINTAINER := lamjiidii1
 
 # Device identifier
-PRODUCT_NAME := arrow_cepheus
+PRODUCT_NAME := octavi_cepheus
 PRODUCT_DEVICE := cepheus
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi 9

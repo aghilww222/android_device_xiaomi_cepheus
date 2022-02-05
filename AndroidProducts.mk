@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_cepheus.mk
+    $(LOCAL_DIR)/octavi_cepheus.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_cepheus-user \
-    arrow_cepheus-userdebug \
-    arrow_cepheus-eng
+    octavi_cepheus-user \
+    octavi_cepheus-userdebug \
+    octavi_cepheus-eng
