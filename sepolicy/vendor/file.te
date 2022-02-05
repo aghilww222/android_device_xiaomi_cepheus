@@ -32,3 +32,5 @@ type ir_spi_device, dev_type, file_type;
 
 # thermal
 type thermal_data_file, data_file_type, file_type;
+
+
