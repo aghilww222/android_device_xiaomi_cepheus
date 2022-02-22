@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/octavi_cepheus.mk
+    $(LOCAL_DIR)/lineage_cepheus.mk
 
 COMMON_LUNCH_CHOICES := \
-    octavi_cepheus-user \
-    octavi_cepheus-userdebug \
-    octavi_cepheus-eng
+    lineage_cepheus-user \
+    lineage_cepheus-userdebug \
+    lineage_cepheus-eng
