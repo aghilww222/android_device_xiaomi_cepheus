@@ -12,3 +12,4 @@ allow system_app default_android_service:service_manager { find };
 allow system_app sysfs:file { write };
 allow system_app sysfs:file { open };
 allow system_app sysfs:file { getattr };
+allow system_app zygote:unix_stream_socket { getopt };
